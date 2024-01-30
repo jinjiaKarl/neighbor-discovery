@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Current Neighbors</title>
+</head>
+<body>
+    <h1>Current Neighbors</h1>
+    <p>Node Information:</p>
+    <ul>
+        <li><strong>Node Name:</strong> {{ node_name }}</li>
+        <li><strong>IP Address:</strong> {{ ip }}</li>
+    </ul>
+    
+    <p>Neighbor Information:</p>
+    <ul id="neighbors-list">
+        <!-- Neighbors will be added here dynamically -->
+    </ul>
+
+    <script>
+        // Function to fetch neighbors data and update the HTML content
+        function fetchNeighbors() {
+            fetch('/neighbors')
+                .then(response => response.json())
+                .then(neighbors => {
+                    const neighborsList = document.getElementById('neighbors-list');
+                    neighborsList.innerHTML = ''; // Clear previous content
+
+                    neighbors.forEach(neighbor => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `Node Name: ${neighbor.node_name}; IP: ${neighbor.addr}`;
+                        neighborsList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching neighbors:', error));
+        }
+
+        // Fetch neighbors when the page loads
+        fetchNeighbors();
+        // 10s
+        setInterval(fetchNeighbors, 10000);  
+    </script>
+</body>
+</html>

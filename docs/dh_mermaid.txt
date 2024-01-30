@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant VM1
+    participant VM2
+    VM1->>+VM2: Ping, PK_vm1, vm1, Signature
+    VM2-->>-VM1: Pong, PK_vm2, vm2, hmac, Signature
+    alt compare(hmac) == false
+        Note over VM1,VM2: disconnect
+    end
+    VM1->>+VM2: ENC_sk(SND_Packet), hmac
+    VM2-->>-VM1: ENC_sk(SND_Packet), hmac
+

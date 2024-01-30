@@ -1,0 +1,7 @@
+__pycache__/
+*.log
+lib/
+bin/
+include/
+pyvenv.cfg
+performance_evaluation/data/

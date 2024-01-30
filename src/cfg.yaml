@@ -1,0 +1,22 @@
+name: vm1
+port: 8080
+web_port: 8000
+ca_ipaddr: 127.0.0.1
+ca_port: 8001
+buffer_size: 2048
+eccdh: true # rsa or eccdh, if test attack, only rsa support
+is_certificate: true # if use certificate, only support ecc
+rx_ipaddr: 192.168.31.129
+tx_ipaddr: 192.168.57.134
+range: 50 # distance threshold, meter, 2.4GHz average transmission distance
+time_ok: false
+speed: 3e8 # meter/second
+constant_j: 3.3e-6
+noise_strength: [0,0] # millisecond format: [low, high]
+location_ok: false
+location:
+  - 1 # latitude
+  - 1 # longitude
+nonce_ok: false
+nonce_expire_time: 120 # seconds 
+location_delay_per_meter: [1, 10] # ms

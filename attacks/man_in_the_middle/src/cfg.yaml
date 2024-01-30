@@ -1,0 +1,17 @@
+name: atck
+port: 8080
+buffer_size: 2048
+# test
+rx_ipaddr: 10.0.0.3
+tx_ipaddr_sender: 10.0.0.1
+tx_ipaddr_impersonated: 10.0.0.2
+# rx_ipaddr: 10.0.0.3 //whoami
+# tx_ipaddr_sender: 10.0.0.1 //who I recieved msg from
+# tx_ipaddr_impersonated: 10.0.0.2 // impersonate
+active_attack: true
+time_ok: false
+delay_time: 1000 # millisecond
+location_ok: false
+location: 
+  - 1 # latitude
+  - 1 # longitude
